@@ -1,0 +1,127 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * "Tropical Green Garden" design system.
+ * Emerald / sage / ivory palette with peach botanical accents.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-forest: var(--forest);
+  --color-emerald-deep: var(--emerald-deep);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-ivory: var(--ivory);
+  --color-peach: var(--peach);
+  --color-gold: var(--gold);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Pinyon Script", cursive;
+  --font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --shadow-botanical: 0 24px 60px -28px color-mix(in oklab, var(--forest) 55%, transparent);
+  --shadow-soft: 0 12px 40px -20px color-mix(in oklab, var(--forest) 40%, transparent);
+}
+
+:root {
+  --radius: 1rem;
+
+  --forest: oklch(0.31 0.06 158);
+  --emerald-deep: oklch(0.44 0.1 159);
+  --sage: oklch(0.63 0.06 150);
+  --sage-soft: oklch(0.86 0.03 148);
+  --ivory: oklch(0.975 0.014 92);
+  --peach: oklch(0.82 0.09 45);
+  --gold: oklch(0.78 0.08 85);
+
+  --background: var(--ivory);
+  --foreground: var(--forest);
+  --card: oklch(0.995 0.006 95);
+  --card-foreground: var(--forest);
+  --popover: oklch(0.995 0.006 95);
+  --popover-foreground: var(--forest);
+  --primary: var(--sage);
+  --primary-foreground: oklch(0.99 0.008 95);
+  --secondary: var(--sage-soft);
+  --secondary-foreground: var(--forest);
+  --muted: oklch(0.94 0.02 120);
+  --muted-foreground: oklch(0.52 0.03 155);
+  --accent: var(--peach);
+  --accent-foreground: var(--forest);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.88 0.03 150);
+  --input: oklch(0.88 0.03 150);
+  --ring: var(--sage);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+}
+
+@utility text-glow-ivory {
+  text-shadow: 0 2px 24px color-mix(in oklab, var(--ivory) 60%, transparent);
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, var(--ivory) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid color-mix(in oklab, var(--ivory) 70%, transparent);
+  box-shadow: var(--shadow-botanical);
+}
+
+@utility section-shell {
+  position: relative;
+  overflow: hidden;
+  padding-block: 5rem;
+  padding-inline: 1.25rem;
+}
